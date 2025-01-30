@@ -1,13 +1,27 @@
 # Naruto-Anime-Character-Network
-This project utilizes data analysis to uncover the intricacies of the Naruto anime, providing new insights and visualizations.
 
-Character Network: A code repository for generating an intricate character network using Spacy's NER model, NetworkX, and PyViz.
+## Overview
+This project analyzes character relationships in a dataset containing subtitle files. It extracts named entities from dialogues and visualizes their interactions as a character network.
 
-Before running the code in this project, make sure you have installed the following packages and some knowledge about it :
+## Dataset
+- The project uses subtitle files (`.ass` format) stored in `../data/Subtitles/`.
+- Dialogue text is extracted from these files for further analysis.
 
-Spacy </br>
-NetworkX </br>
-PyViz </br>
-nltk </br>
-Transformers </br>
-matplotlib </br>
+## Steps and Methods
+### 1. Data Loading
+- Subtitle files are read and processed to extract dialogues.
+
+### 2. Named Entity Recognition (NER)
+- Uses **spaCy (`en_core_web_trf`)** to identify characters (PERSON entities) in dialogues.
+
+### 3. Sentence Tokenization
+- Uses **NLTK (`sent_tokenize`)** to split dialogues into sentences for precise entity extraction.
+
+### 4. Building a Character Network
+- Constructs a graph using **NetworkX**, where:
+  - Nodes represent characters.
+  - Edges represent co-occurrences within the same sentences.
+
+### 5. Visualization
+- Generates static visualizations using **Matplotlib**.
+- Creates interactive network displays using **Pyvis**.
